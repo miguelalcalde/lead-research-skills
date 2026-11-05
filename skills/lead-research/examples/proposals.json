@@ -1,0 +1,63 @@
+{
+  "accounts": [
+    {
+      "id": "example-works",
+      "name": "Example Works",
+      "operations": {
+        "website": {
+          "proposal": { "operation": "website", "status": "found", "value": "https://example.com/", "sources": ["https://example.com/"], "note": "The public homepage identifies the operating company." },
+          "evidenceUrls": ["https://example.com/"], "reviewStatus": "unreviewed"
+        },
+        "official-name": {
+          "proposal": { "operation": "official-name", "status": "found", "value": "Example Works Ltd", "sources": ["https://example.com/legal"], "note": "The legal page states the operating company's name.", "parentCompany": { "name": "Example Holdings", "sources": ["https://example.com/legal"] } },
+          "evidenceUrls": ["https://example.com/legal"], "reviewStatus": "needs_review", "reviewNote": "Check the operating entity and parent scope."
+        },
+        "hq": {
+          "proposal": { "operation": "hq", "status": "ambiguous", "value": null, "sources": ["https://example.com/about"], "note": "Two offices are listed without identifying the headquarters." },
+          "evidenceUrls": ["https://example.com/about"]
+        },
+        "business-model": {
+          "proposal": { "operation": "business-model", "status": "found", "value": "Subscriptions for planning software", "sources": ["https://example.com/pricing"], "note": "The pricing page lists subscription plans." },
+          "evidenceUrls": ["https://example.com/pricing"]
+        },
+        "operating-margin": {
+          "proposal": { "operation": "operating-margin", "status": "not_found", "value": null, "sources": [], "note": "No public operating income and revenue for the same fiscal period were retrieved." },
+          "evidenceUrls": []
+        },
+        "ownership": {
+          "proposal": { "operation": "ownership", "status": "found", "value": [
+            { "name": "Example Holdings", "ownerType": "company", "relationship": "direct_parent", "stakePercent": 75, "percentageType": "equity", "asOf": "2025-12-31", "sources": ["https://example.com/filing"], "note": "The fictional filing states 75% of ordinary shares." },
+            { "name": "Sample Growth Fund II", "ownerType": "fund", "relationship": "material_stake", "stakePercent": null, "percentageType": null, "asOf": "2025-12-31", "sources": ["https://example.com/filing"], "note": "The fictional filing lists a stake but no percentage." }
+          ], "sources": ["https://example.com/filing"], "note": "Direct parent and one disclosed minority investor; not a complete cap table." },
+          "evidenceUrls": ["https://example.com/filing"]
+        },
+        "people-candidates": {
+          "proposal": { "operation": "people-candidates", "status": "found", "value": [
+            { "name": "Alex Example", "title": "CTO", "employer": "Example Works", "role": "champion_candidate", "profileUrl": "https://linkedin.com/in/alex-example/", "sources": ["https://linkedin.com/in/alex-example/"], "caveat": "Advocacy and budget authority are unconfirmed." }
+          ], "sources": ["https://linkedin.com/in/alex-example/"], "note": "A potential technical contact, not a confirmed champion." },
+          "evidenceUrls": ["https://linkedin.com/in/alex-example/"]
+        },
+        "news": {
+          "proposal": { "operation": "news", "status": "found", "value": [
+            { "title": "Example Works launches a product", "url": "https://example.com/news/launch", "publishedAt": "2026-10-01", "summary": "The fictional company announced a new planning product." }
+          ], "sources": ["https://example.com/news/launch"], "note": "An announcement, not evidence of purchase intent." },
+          "evidenceUrls": ["https://example.com/news/launch"]
+        }
+      }
+    },
+    {
+      "id": "sample-retail",
+      "name": "Sample Retail",
+      "operations": {
+        "website": {
+          "proposal": { "operation": "website", "status": "found", "value": "https://retail.example.com/", "sources": ["https://retail.example.com/"], "note": "The homepage identifies the retailer." },
+          "evidenceUrls": ["https://retail.example.com/"]
+        },
+        "ownership": {
+          "proposal": { "operation": "ownership", "status": "not_found", "value": null, "sources": [], "note": "No current controlling owner or material stake was established within the bounded search." },
+          "evidenceUrls": []
+        }
+      }
+    }
+  ]
+}

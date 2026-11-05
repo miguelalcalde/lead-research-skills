@@ -1,0 +1,4 @@
+[
+  { "id": "sample-1", "name": "Example company", "region": "France" },
+  { "id": "sample-2", "name": "Another example business", "region": "Canada" }
+]

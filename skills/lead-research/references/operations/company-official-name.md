@@ -1,0 +1,5 @@
+# Operation: `official-name`
+
+Input: supplied company/brand name; optional region and known website. Output: the **publicly stated official operating-company name**, including legal suffix only when the source states it. Preserve the original user label; don't silently replace it. A brand's legal owning company is not automatically the brand's official name.
+
+Search: Exa `category: company`, `type: auto`, `numResults: 5`, short highlights. Look for official About, contact, imprint, privacy or registration pages that identify the exact entity. Company directories can suggest candidates, not settle conflicting legal identities. Follow one evidence gap with a targeted general web search if necessary. When only parent/group name is evident, put it in a sourced optional `parentCompany` and mark official-name unknown/ambiguous as appropriate. For an explicit request to research parent/controller or fund stakes, route to the standalone [ownership operation](company-ownership.md) instead. Cite the page that actually prints the proposed name.

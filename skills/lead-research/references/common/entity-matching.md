@@ -1,0 +1,5 @@
+# Company entity matching
+
+The record may be a brand, operating company, subsidiary, parent group or a namesake. Treat its supplied name, known domain and geography as disambiguation hints, not facts to be overwritten. Research the **intended operating entity**. Do not substitute the parent's legal name, HQ or LinkedIn page for a brand or subsidiary. If the operating entity has no separately published fact, mark that operation `not_found` or `ambiguous`, and explain the parent evidence separately.
+
+A sourced `parentCompany` name may be carried alongside any operation when naturally encountered. The standalone [ownership operation](../operations/company-ownership.md) researches direct parent/controller and material disclosed stakes when explicitly requested; it distinguishes a fund's stake from a legal parent. Resolving an owner to an existing related record is the host's job. Do not create a related record, infer a parent from domain ownership, or conflate franchisees/licensees with group subsidiaries. Where multiple plausible entities remain, stop and request a clarifying region, domain or entity type rather than guessing.

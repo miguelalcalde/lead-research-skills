@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+runs/
+.cache/
+*.jsonl
+*.skill
+
+# Local project guidance and research history; not part of the public skill.
+/AGENTS.md
+/MEMORY.md

@@ -1,0 +1,11 @@
+# Proposal and evidence contract
+
+For each requested fact, return `{ operation, status, value, sources, note? }`, where `operation` is one of `website`, `official-name`, `linkedin`, `hq`, `business-model`, `operating-margin`, `news`, `people-candidates`, `ownership`; `status` is `found`, `ambiguous`, or `not_found`; `value` is operation-specific (a string, margin object, or list) **only** for `found`, otherwise null; and `sources` contains exact public URLs actually returned by retrieval. `found` needs at least one source that supports the specific value. `ambiguous` must explain the competing entities or sources, and must not choose one. `not_found` means no supported answer within the bounded search, not that the fact does not exist. An example of a proposed `found` value:
+
+```json
+{ "operation": "website", "status": "found", "value": "https://example.com/", "sources": ["https://example.com/"], "note": "Company homepage identifies the operating entity." }
+```
+
+The deterministic [validator](../../scripts/validate.mjs) checks shape and URL provenance against retrieved result URLs; it cannot prove truth, company ownership, or whether an excerpt entails a claim. Check the page's content for the specific claim, preferably against an official source. A homepage identifies a company but does not prove its HQ or legal name unless the page actually states them. Never construct a website or LinkedIn URL from a company name, use a search-results URL as evidence, or silently substitute a parent for a brand. Recheck stale/contradictory sources and keep the original user-provided name intact.
+
+Do not ask a model for a confidence estimate. Include `confidence` only when an endpoint explicitly returns one, and then record the endpoint and the field's documented meaning; otherwise omit it entirely. Operational statuses above are **not** confidence scores. Include `parentCompany` only when an encountered source actually supports it; this is an incidental identity hint, not a completed relation or a substitute for the standalone [ownership operation](../operations/company-ownership.md). The host decides whether to map it to a relation, text field, or neither after identity review.
