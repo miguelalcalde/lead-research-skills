@@ -1,1 +1,47 @@
-{"skill_name":"lead-research","evals":[{"id":1,"prompt":"I have names of 20 companies and only want their official website URLs. Research five first; don't fill any other fields or write to my database.","expected_output":"Only website proposals with exact retrieved URLs, explicit ambiguous/missing outcomes and a bounded paid-work gate.","files":[]},{"id":2,"prompt":"For this regional brand, find its official name, LinkedIn company page and HQ, noting a parent only if the sources actually support one.","expected_output":"Three independent sourced proposals; no substituted parent HQ/LinkedIn, no invented confidence or implicit website operation.","files":[]},{"id":3,"prompt":"Find potential buying champions at these target companies and their recent news.","expected_output":"Runs only requested people and news operations; seeks public current-role evidence and dated company news without inventing budget authority or contact data.","files":[]},{"id":4,"prompt":"Only research who owns these companies: the direct parent or controlling fund and any material disclosed stakes. If a report says owned by a fund but gives no percentage, leave the percentage unknown. Don't research personas or margins.","expected_output":"An independently selected ownership operation with dated source-backed owner roles and percentages typed as equity/voting/indirect or null when undisclosed; no invented cap table.","files":[]},{"id":5,"prompt":"I already have validated synthetic proposals in examples/proposals.json. Give me a CSV-first handoff with one row per company, separate ownership, people and news tables, and short Markdown briefs. No web research or account writes.","expected_output":"Dependency-free local CSV/Markdown output keyed by account ID; statuses separate from review decisions, ambiguous and not_requested distinct, optional JSON only on request.","files":["examples/proposals.json"]}]}
+{
+  "skill_name": "lead-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have names of 20 companies and only want their official website URLs. Research five first; don't fill any other fields or write to my database.",
+      "expected_output": "Only website proposals with exact retrieved URLs, explicit ambiguous/missing outcomes and a bounded paid-work gate.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "For this regional brand, find its official name, LinkedIn company page and HQ, noting a parent only if the sources actually support one.",
+      "expected_output": "Three independent sourced proposals; no substituted parent HQ/LinkedIn, no invented confidence or implicit website operation.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Find potential buying champions at these target companies and their recent news.",
+      "expected_output": "Runs only requested people and news operations; seeks public current-role evidence and dated company news without inventing budget authority or contact data.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Only research who owns these companies: the direct parent or controlling fund and any material disclosed stakes. If a report says owned by a fund but gives no percentage, leave the percentage unknown. Don't research personas or margins.",
+      "expected_output": "An independently selected ownership operation with dated source-backed owner roles and percentages typed as equity/voting/indirect or null when undisclosed; no invented cap table.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "I already have validated synthetic proposals in examples/proposals.json. Give me a CSV-first handoff with one row per company, separate ownership, people and news tables, and short Markdown briefs. No web research or account writes.",
+      "expected_output": "Dependency-free local CSV/Markdown output keyed by account ID; statuses separate from review decisions, ambiguous and not_requested distinct, optional JSON only on request.",
+      "files": ["examples/proposals.json"]
+    },
+    {
+      "id": 6,
+      "prompt": "I met a commercial director named Alex at an industrial packaging company near Lyon whose name sounded like 'ExamplePack' or 'ExampelPac'. It is definitely not Alex Example at ExamplePack Logistics. Help me find their public profile.",
+      "expected_output": "Routes to standalone person-identification without requiring a verified company name, seller buying motion, or buyer-role assignment. Uses Gateway Exa Search (people category, up to 5 results, at most one focused follow-up) and reports the blocker via getting-started.md instead of silently switching providers if Gateway access is missing. Excludes Alex Example, keeps approximate company/location clues as hypotheses, cites only exact retrieved source URLs without guessing LinkedIn slugs or collecting private contacts, and returns concise chat-ready output (status, exact URLs, up to 3 sourced candidates, confirmation caveat) rather than the nine-operation batch CSV formatter.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Try to identify an operations director named Sam working in solar glass manufacturing near Porto; the company name sounded like 'SampleGlass' or 'SamplGlas', and two similarly named firms operate nearby.",
+      "expected_output": "Uses standalone person-identification via bounded Gateway Exa Search (people category, up to 5 results, at most one focused follow-up) without silently changing search providers. When retrieved evidence leaves multiple plausible matches or conflicting employer/role clues, returns status ambiguous while keeping up to 3 sourced shortlist candidates visible with exact retrieved URLs (no guessed slugs or private contacts), names the remaining gap or conflict, distinguishes a sourced public profile from user confirmation, and asks for one discriminating clue.",
+      "files": []
+    }
+  ]
+}
